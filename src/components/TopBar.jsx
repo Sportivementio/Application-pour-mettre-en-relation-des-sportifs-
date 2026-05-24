@@ -4,17 +4,20 @@ export default function TopBar({ user, onLogout }) {
   return (
     <header className="topbar">
       <Link to="/" className="topbar-logo">
-        Sportiv<span>ement</span>
+        SPORTIVEMENT<span>IO</span>
       </Link>
       <div className="topbar-actions">
         {user ? (
-          <button className="btn btn-ghost btn-sm" onClick={onLogout}>
-            Déconnexion
+          <button
+            className="topbar-badge"
+            onClick={onLogout}
+            aria-label="Déconnexion"
+            title="Déconnexion"
+          >
+            <span aria-hidden>◆</span>
           </button>
         ) : (
-          <>
-            <Link to="/auth" className="btn btn-ghost btn-sm">Connexion</Link>
-          </>
+          <Link to="/auth" className="btn btn-ghost btn-sm">Connexion</Link>
         )}
       </div>
     </header>

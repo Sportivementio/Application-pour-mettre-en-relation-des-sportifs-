@@ -30,7 +30,15 @@ export default function ProfileView({ user }) {
   return (
     <div>
       <div className="card-elevated text-center" style={{ marginBottom: 24 }}>
-        <div className="avatar avatar-lg" style={{ margin: '0 auto 16px' }}>{initials}</div>
+        <div
+          className="avatar avatar-lg"
+          style={{
+            margin: '0 auto 16px',
+            ...(profile.avatar_url ? { backgroundImage: `url(${profile.avatar_url})` } : {}),
+          }}
+        >
+          {!profile.avatar_url && initials}
+        </div>
         <h1 style={{ fontSize: 28, marginBottom: 4 }}>
           {profile.full_name || profile.username}
         </h1>
@@ -45,7 +53,7 @@ export default function ProfileView({ user }) {
         {userSports.length > 0 && (
           <div className="pill-group" style={{ justifyContent: 'center', marginBottom: 16 }}>
             {userSports.map(s => (
-              <span key={s.id} className="tag" style={{ fontSize: 14, padding: '6px 12px' }}>
+              <span key={s.id} className="tag-sport" style={{ color: s.color, fontSize: 13, padding: '6px 14px' }}>
                 {s.emoji} {s.label}
               </span>
             ))}

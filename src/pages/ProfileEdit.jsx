@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { supabase } from '../lib/supabase'
-import { SPORTS, LEVELS, CATEGORIES } from '../lib/constants'
+import { SPORTS, LEVELS } from '../lib/constants'
 
 export default function ProfileEdit({ user }) {
   const [profile, setProfile] = useState({
@@ -106,23 +106,22 @@ export default function ProfileEdit({ user }) {
           />
         </div>
 
-        {Object.entries(CATEGORIES).map(([cat, label]) => (
-          <div className="field" key={cat}>
-            <label className="field-label">{label}</label>
-            <div className="pill-group">
-              {SPORTS.filter(s => s.category === cat).map(s => (
-                <button
-                  key={s.id}
-                  type="button"
-                  className={'pill' + (profile.sports.includes(s.id) ? ' active' : '')}
-                  onClick={() => toggleSport(s.id)}
-                >
-                  {s.emoji} {s.label}
-                </button>
-              ))}
-            </div>
+        <div className="field">
+          <label className="field-label">Disciplines</label>
+          <div className="pill-group">
+            {SPORTS.map(s => (
+              <button
+                key={s.id}
+                type="button"
+                className={'pill' + (profile.sports.includes(s.id) ? ' active' : '')}
+                onClick={() => toggleSport(s.id)}
+                style={profile.sports.includes(s.id) ? { background: s.color, borderColor: s.color } : {}}
+              >
+                {s.emoji} {s.label}
+              </button>
+            ))}
           </div>
-        ))}
+        </div>
 
         <button type="submit" className="btn btn-accent btn-full" disabled={saving}>
           {saving ? 'Enregistrement…' : 'Enregistrer mon profil'}
