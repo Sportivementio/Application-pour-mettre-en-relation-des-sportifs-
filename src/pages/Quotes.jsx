@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { QUOTES } from '../lib/quotes'
 import { SPORTS } from '../lib/constants'
+import PageHeader from '../components/PageHeader'
 
 // Filtres : "Tout" + liste des sports présents dans QUOTES
 const SPORT_FILTERS = [
@@ -26,16 +27,13 @@ export default function Quotes() {
     return list
   }, [filter, search])
 
+  // La 1ère citation = vedette du jour, affichée en rouge
+  const featured = filtered[0]
+  const rest = filtered.slice(1)
+
   return (
     <div>
-      <div className="hero-banner">
-        <div className="hero-banner-content">
-          <span className="hero-banner-badge">❝ Citations</span>
-          <h1 className="hero-title" style={{ fontSize: 'clamp(34px, 7vw, 52px)', margin: 0 }}>
-            Les légendes<br/>ont <span className="hero-accent">parlé</span>
-          </h1>
-        </div>
-      </div>
+      <PageHeader title="Citations" subtitle="La sagesse des champions" />
 
       <div className="search-bar">
         <span className="search-icon">🔎</span>
@@ -60,38 +58,27 @@ export default function Quotes() {
         ))}
       </div>
 
-      <h2 className="section-title" style={{ marginTop: 24 }}>
-        {filtered.length} {filtered.length > 1 ? 'citations' : 'citation'}
-      </h2>
-
       {filtered.length === 0 ? (
-        <div className="empty">
-          <div className="empty-icon">❝</div>
-          <div>Aucune citation trouvée.</div>
-        </div>
+        <div className="empty-card">Aucune citation trouvée.</div>
       ) : (
         <div className="stack">
-          {filtered.map(q => {
-            const sport = SPORTS.find(s => s.id === q.sport)
-            const accentColor = sport?.color || '#a855f7'
-            return (
-              <div key={q.id} className="quote-card">
-                <span className="quote-mark" aria-hidden>❝</span>
-                <blockquote className="quote-text">
-                  {q.text}
-                </blockquote>
-                <div className="quote-footer">
-                  <div className="quote-author">— {q.author}</div>
-                  <span
-                    className="tag-sport"
-                    style={{ color: accentColor, fontSize: 11 }}
-                  >
-                    {q.emoji} {sport?.label || 'Arts martiaux'}
-                  </span>
-                </div>
-              </div>
-            )
-          })}
+          {/* 1ère = vedette en rouge */}
+          <div className="quote-featured">
+            <blockquote className="quote-featured-text">
+              « {featured.text} »
+            </blockquote>
+            <div className="quote-featured-author">— {featured.author}</div>
+          </div>
+
+          {/* Le reste en cards dark */}
+          {rest.map(q => (
+            <div key={q.id} className="quote-card-dark">
+              <blockquote className="quote-card-dark-text">
+                « {q.text} »
+              </blockquote>
+              <div className="quote-card-dark-author">— {q.author}</div>
+            </div>
+          ))}
         </div>
       )}
     </div>

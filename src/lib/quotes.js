@@ -69,6 +69,13 @@ export const QUOTES = [
   { id: 48, text: "Sois comme l'eau, mon ami.", author: "Bruce Lee", sport: "general", emoji: "🐉" },
   { id: 49, text: "Je ne crains pas l'homme qui a pratiqué 10 000 coups une fois. Je crains l'homme qui a pratiqué un coup 10 000 fois.", author: "Bruce Lee", sport: "general", emoji: "🐉" },
   { id: 50, text: "L'erreur ultime de la vie, c'est la peur d'en commettre une.", author: "Bruce Lee", sport: "general", emoji: "🐉" },
+
+  // ===== ROCKY BALBOA & icônes ciné =====
+  { id: 51, text: "C'est pas le coup le plus fort qui gagne, c'est celui qui se relève.", author: "Rocky Balboa", sport: "boxe", emoji: "🥊" },
+  { id: 52, text: "Personne ne te frappera jamais aussi fort que la vie.", author: "Rocky Balboa", sport: "boxe", emoji: "🥊" },
+  { id: 53, text: "Je hais chaque minute d'entraînement, mais je me dis 'n'abandonne pas'. Souffre maintenant et vis le reste de ta vie en champion.", author: "Mohamed Ali", sport: "boxe", emoji: "🥊" },
+  { id: 54, text: "L'impossible n'est qu'un grand mot brandi par les petits hommes.", author: "Mohamed Ali", sport: "boxe", emoji: "🥊" },
+  { id: 55, text: "Le seul moyen d'être vraiment vivant, c'est de risquer sa vie.", author: "Bruce Lee", sport: "general", emoji: "🐉" },
 ]
 
 // Choisir une citation aléatoire
