@@ -7,7 +7,8 @@ import Auth from './pages/Auth'
 import Discover from './pages/Discover'
 import ProfileView from './pages/ProfileView'
 import ProfileEdit from './pages/ProfileEdit'
-import Messages from './pages/Messages'
+import Chat from './pages/Chat'
+import CityRoom from './pages/CityRoom'
 import Conversation from './pages/Conversation'
 import Quotes from './pages/Quotes'
 
@@ -51,8 +52,9 @@ export default function App() {
                 <Route path="/profile" element={<ProfileView user={user} />} />
                 <Route path="/profile/edit" element={<ProfileEdit user={user} />} />
                 <Route path="/profile/:id" element={<ProfileView user={user} />} />
-                <Route path="/messages" element={<Messages user={user} />} />
+                <Route path="/messages" element={<Chat user={user} />} />
                 <Route path="/messages/:otherId" element={<Conversation user={user} />} />
+                <Route path="/chat/:cityName" element={<CityRoom user={user} />} />
                 <Route path="/quotes" element={<Quotes />} />
                 <Route path="*" element={<Navigate to="/" replace />} />
               </>
