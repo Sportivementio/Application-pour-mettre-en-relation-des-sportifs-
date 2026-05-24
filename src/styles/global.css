@@ -1090,6 +1090,141 @@ h1, h2, h3, h4 {
   flex: 1;
 }
 
+/* ===== Menu modération sur message de ville ===== */
+.city-msg-menu-btn {
+  background: transparent;
+  color: var(--text-mute);
+  font-size: 18px;
+  padding: 0 6px;
+  border-radius: var(--r-sm);
+  line-height: 1;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+.city-msg-menu-btn:hover { color: var(--accent); background: var(--bg-elev-2); }
+
+.city-msg-menu {
+  position: absolute;
+  margin-top: 4px;
+  background: var(--bg-elev-2);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: 4px;
+  box-shadow: var(--shadow-md);
+  z-index: 5;
+  min-width: 160px;
+}
+.city-msg-menu-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 10px 14px;
+  border-radius: var(--r-sm);
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text);
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.city-msg-menu-item:hover { background: var(--bg-elev); color: var(--accent); }
+.city-msg-menu-item.danger:hover { color: var(--danger); }
+
+.city-msg-hidden {
+  background: var(--bg-soft) !important;
+  border: 1px dashed var(--line) !important;
+  color: var(--text-mute) !important;
+  font-style: italic;
+  font-size: 13px !important;
+}
+
+/* Positionnement relatif pour menus */
+.city-msg-content {
+  position: relative;
+}
+
+/* ===== Toast notification ===== */
+.toast-wrap {
+  position: fixed;
+  top: calc(env(safe-area-inset-top) + 70px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 32px);
+  max-width: 420px;
+  z-index: 100;
+  animation: toast-slide-in 0.35s ease-out;
+}
+@keyframes toast-slide-in {
+  from { opacity: 0; transform: translate(-50%, -16px); }
+  to   { opacity: 1; transform: translate(-50%, 0); }
+}
+.toast-card {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  background: var(--bg-elev);
+  border: 1px solid var(--accent);
+  border-radius: var(--r-md);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.55), 0 0 0 3px rgba(230,57,70,0.18);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+.toast-card:hover { transform: translateY(-1px); }
+.toast-body {
+  flex: 1;
+  padding: 12px 14px;
+  min-width: 0;
+}
+.toast-title {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.toast-text {
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.35;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.toast-close {
+  flex-shrink: 0;
+  width: 36px;
+  background: transparent;
+  color: var(--text-mute);
+  font-size: 22px;
+  line-height: 1;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+.toast-close:hover { color: var(--accent); background: var(--bg-elev-2); }
+
+/* ===== Badge non-lus sur BottomNav ===== */
+.nav-badge {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  background: var(--accent);
+  color: white;
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 1px 6px;
+  min-width: 16px;
+  text-align: center;
+  border: 2px solid var(--bg);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.5);
+  pointer-events: none;
+}
+
 /* ===== Profile hero (page ProfileView) ===== */
 .profile-hero {
   background: var(--bg-elev);

@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { supabase } from './lib/supabase'
+import { NotificationsProvider } from './lib/NotificationsContext'
 import TopBar from './components/TopBar'
 import BottomNav from './components/BottomNav'
+import Toast from './components/Toast'
 import Auth from './pages/Auth'
 import Discover from './pages/Discover'
 import ProfileView from './pages/ProfileView'
@@ -37,32 +39,35 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      <div className="app-shell">
-        <TopBar user={user} onLogout={handleLogout} />
-        <main className="app-main">
-          <Routes>
-            {!user ? (
-              <>
-                <Route path="/auth" element={<Auth />} />
-                <Route path="*" element={<Navigate to="/auth" replace />} />
-              </>
-            ) : (
-              <>
-                <Route path="/" element={<Discover user={user} />} />
-                <Route path="/profile" element={<ProfileView user={user} />} />
-                <Route path="/profile/edit" element={<ProfileEdit user={user} />} />
-                <Route path="/profile/:id" element={<ProfileView user={user} />} />
-                <Route path="/messages" element={<Chat user={user} />} />
-                <Route path="/messages/:otherId" element={<Conversation user={user} />} />
-                <Route path="/chat/:cityName" element={<CityRoom user={user} />} />
-                <Route path="/quotes" element={<Quotes />} />
-                <Route path="*" element={<Navigate to="/" replace />} />
-              </>
-            )}
-          </Routes>
-        </main>
-        {user && <BottomNav />}
-      </div>
+      <NotificationsProvider user={user}>
+        <div className="app-shell">
+          <TopBar user={user} onLogout={handleLogout} />
+          <main className="app-main">
+            <Routes>
+              {!user ? (
+                <>
+                  <Route path="/auth" element={<Auth />} />
+                  <Route path="*" element={<Navigate to="/auth" replace />} />
+                </>
+              ) : (
+                <>
+                  <Route path="/" element={<Discover user={user} />} />
+                  <Route path="/profile" element={<ProfileView user={user} />} />
+                  <Route path="/profile/edit" element={<ProfileEdit user={user} />} />
+                  <Route path="/profile/:id" element={<ProfileView user={user} />} />
+                  <Route path="/messages" element={<Chat user={user} />} />
+                  <Route path="/messages/:otherId" element={<Conversation user={user} />} />
+                  <Route path="/chat/:cityName" element={<CityRoom user={user} />} />
+                  <Route path="/quotes" element={<Quotes />} />
+                  <Route path="*" element={<Navigate to="/" replace />} />
+                </>
+              )}
+            </Routes>
+          </main>
+          {user && <BottomNav />}
+          <Toast />
+        </div>
+      </NotificationsProvider>
     </BrowserRouter>
   )
 }

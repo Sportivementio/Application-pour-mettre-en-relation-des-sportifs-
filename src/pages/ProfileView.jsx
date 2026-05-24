@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom'
 import { supabase } from '../lib/supabase'
 import { SPORTS } from '../lib/constants'
 import PageHeader from '../components/PageHeader'
+import { isBlocked, blockUser, unblockUser } from '../lib/moderation'
 
 export default function ProfileView({ user }) {
   const { id } = useParams()
@@ -12,12 +13,37 @@ export default function ProfileView({ user }) {
 
   const [profile, setProfile] = useState(null)
   const [loading, setLoading] = useState(true)
+  const [blocked, setBlocked] = useState(false)
+  const [blockBusy, setBlockBusy] = useState(false)
 
   useEffect(() => {
     if (!profileId) return
+    setLoading(true)
     supabase.from('profiles').select('*').eq('id', profileId).single()
       .then(({ data }) => { setProfile(data); setLoading(false) })
-  }, [profileId])
+    if (!isMe && user?.id) {
+      isBlocked(user.id, profileId).then(setBlocked)
+    }
+  }, [profileId, isMe, user?.id])
+
+  async function handleBlockToggle() {
+    if (!user || isMe) return
+    setBlockBusy(true)
+    if (blocked) {
+      const res = await unblockUser(user.id, profile.id)
+      if (res.ok) setBlocked(false)
+      else alert("Impossible de débloquer : " + (res.error?.message || ''))
+    } else {
+      if (!confirm(`Bloquer ${profile.full_name || profile.username} ? Ses messages seront masqués.`)) {
+        setBlockBusy(false)
+        return
+      }
+      const res = await blockUser(user.id, profile.id)
+      if (res.ok) setBlocked(true)
+      else alert("Impossible de bloquer : " + (res.error?.message || ''))
+    }
+    setBlockBusy(false)
+  }
 
   if (loading) return <div className="loading">Chargement…</div>
   if (!profile) return <div className="empty-card">Profil introuvable.</div>
@@ -86,12 +112,24 @@ export default function ProfileView({ user }) {
               ✏️ MODIFIER MON PROFIL
             </Link>
           ) : (
-            <button
-              className="btn btn-accent btn-full"
-              onClick={() => navigate(`/messages/${profile.id}`)}
-            >
-              💬 ENVOYER UN MESSAGE
-            </button>
+            <>
+              <button
+                className="btn btn-accent btn-full"
+                onClick={() => navigate(`/messages/${profile.id}`)}
+                disabled={blocked}
+                title={blocked ? 'Tu as bloqué ce combattant' : ''}
+              >
+                💬 ENVOYER UN MESSAGE
+              </button>
+              <button
+                className={'btn btn-full ' + (blocked ? 'btn-outline' : 'btn-ghost')}
+                style={{ marginTop: 10 }}
+                onClick={handleBlockToggle}
+                disabled={blockBusy}
+              >
+                {blocked ? '🔓 DÉBLOQUER' : '🚫 BLOQUER'}
+              </button>
+            </>
           )}
         </div>
       </div>
