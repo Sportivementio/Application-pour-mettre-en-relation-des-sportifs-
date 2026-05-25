@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="bgN" x1="0" y1="0" x2="400" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0a0a0b"/>
+      <stop offset="1" stop-color="#1c1c22"/>
+    </linearGradient>
+    <radialGradient id="glowN" cx="200" cy="180" r="180" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e63946" stop-opacity="0.25"/>
+      <stop offset="1" stop-color="#e63946" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#bgN)"/>
+  <rect width="400" height="400" fill="url(#glowN)"/>
+
+  <!-- Gant de boxe stylisé centré -->
+  <g transform="translate(200,200) rotate(-20)">
+    <!-- Manchette -->
+    <rect x="-55" y="40" width="110" height="50" rx="10" fill="#b91c2c"/>
+    <!-- Corps du gant -->
+    <ellipse cx="0" cy="0" rx="80" ry="70" fill="#e63946"/>
+    <!-- Pouce -->
+    <ellipse cx="-60" cy="20" rx="22" ry="32" fill="#e63946"/>
+    <!-- Ligne de couture -->
+    <path d="M -50 -10 Q 0 10 50 -10" stroke="#0a0a0b" stroke-width="3" fill="none" opacity="0.4"/>
+    <path d="M -50 15 Q 0 35 50 15" stroke="#0a0a0b" stroke-width="3" fill="none" opacity="0.4"/>
+  </g>
+</svg>

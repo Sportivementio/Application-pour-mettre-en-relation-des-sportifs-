@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="bgF" x1="0" y1="0" x2="400" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0a0a0b"/>
+      <stop offset="1" stop-color="#1c1c22"/>
+    </linearGradient>
+    <radialGradient id="glowF" cx="200" cy="180" r="180" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e63946" stop-opacity="0.25"/>
+      <stop offset="1" stop-color="#e63946" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <!-- Fond sombre -->
+  <rect width="400" height="400" fill="url(#bgF)"/>
+  <rect width="400" height="400" fill="url(#glowF)"/>
+
+  <!-- Silhouette épaules (plus fines que H) -->
+  <path d="M 80 400 Q 80 290 200 280 Q 320 290 320 400 Z" fill="#e63946"/>
+
+  <!-- Tête -->
+  <circle cx="200" cy="170" r="72" fill="#e63946"/>
+
+  <!-- Queue de cheval (détail féminin) -->
+  <path d="M 260 175 Q 305 200 320 260 Q 305 270 285 260 Q 275 220 255 200 Z" fill="#e63946"/>
+
+  <!-- Bandeau (headband boxe) -->
+  <rect x="135" y="135" width="130" height="14" rx="3" fill="#0a0a0b" opacity="0.45"/>
+
+  <!-- Ligne mâchoire -->
+  <path d="M 178 215 Q 200 228 222 215" stroke="#0a0a0b" stroke-width="3" fill="none" opacity="0.4"/>
+
+  <!-- Accent rouge bandage cou -->
+  <rect x="172" y="252" width="56" height="10" rx="2" fill="#b91c2c"/>
+</svg>

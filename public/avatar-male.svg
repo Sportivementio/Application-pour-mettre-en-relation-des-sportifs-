@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="bgM" x1="0" y1="0" x2="400" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0a0a0b"/>
+      <stop offset="1" stop-color="#1c1c22"/>
+    </linearGradient>
+    <radialGradient id="glowM" cx="200" cy="180" r="180" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e63946" stop-opacity="0.25"/>
+      <stop offset="1" stop-color="#e63946" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <!-- Fond sombre -->
+  <rect width="400" height="400" fill="url(#bgM)"/>
+  <rect width="400" height="400" fill="url(#glowM)"/>
+
+  <!-- Silhouette épaules -->
+  <path d="M 60 400 Q 60 280 200 270 Q 340 280 340 400 Z" fill="#e63946"/>
+
+  <!-- Tête (cercle) -->
+  <circle cx="200" cy="170" r="80" fill="#e63946"/>
+
+  <!-- Casque/protection (arc au-dessus) -->
+  <path d="M 130 165 Q 200 100 270 165 L 270 200 Q 200 240 130 200 Z"
+        fill="#0a0a0b" opacity="0.35"/>
+
+  <!-- Ligne mâchoire (détail subtil) -->
+  <path d="M 175 215 Q 200 230 225 215" stroke="#0a0a0b" stroke-width="3" fill="none" opacity="0.4"/>
+
+  <!-- Accent rouge bandage cou -->
+  <rect x="170" y="248" width="60" height="10" rx="2" fill="#b91c2c"/>
+</svg>
