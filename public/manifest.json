@@ -1,12 +1,12 @@
 {
-  "name": "Sportivement",
-  "short_name": "Sportivement",
-  "description": "Trouve un partenaire pour ton sport",
+  "name": "Sportivementio",
+  "short_name": "Sportivementio",
+  "description": "L'app des sports de combat. Trouve ton partenaire de sparring près de chez toi.",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#0f0f0f",
-  "theme_color": "#1a1a1a",
+  "background_color": "#0a0a0b",
+  "theme_color": "#0a0a0b",
   "categories": ["sports", "social", "lifestyle"],
   "lang": "fr",
   "icons": [

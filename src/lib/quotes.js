@@ -76,6 +76,67 @@ export const QUOTES = [
   { id: 53, text: "Je hais chaque minute d'entraînement, mais je me dis 'n'abandonne pas'. Souffre maintenant et vis le reste de ta vie en champion.", author: "Mohamed Ali", sport: "boxe", emoji: "🥊" },
   { id: 54, text: "L'impossible n'est qu'un grand mot brandi par les petits hommes.", author: "Mohamed Ali", sport: "boxe", emoji: "🥊" },
   { id: 55, text: "Le seul moyen d'être vraiment vivant, c'est de risquer sa vie.", author: "Bruce Lee", sport: "general", emoji: "🐉" },
+
+  // ===== Plus de BOXE =====
+  { id: 56, text: "Je suis un athlète. Je crois en l'effort et au sacrifice.", author: "Floyd Mayweather", sport: "boxe", emoji: "🥊" },
+  { id: 57, text: "Le travail bat le talent quand le talent ne travaille pas.", author: "Tim Notke (cité par Kevin Durant)", sport: "boxe", emoji: "🥊" },
+  { id: 58, text: "Je ne crains personne, sauf Dieu.", author: "Manny Pacquiao", sport: "boxe", emoji: "🥊" },
+  { id: 59, text: "Plus tu transpires à l'entraînement, moins tu saignes au combat.", author: "Proverbe samouraï", sport: "boxe", emoji: "🥊" },
+  { id: 60, text: "Un champion craint les coups bas plus que les coups durs.", author: "Wladimir Klitschko", sport: "boxe", emoji: "🥊" },
+  { id: 61, text: "La boxe, c'est l'élégance et la violence dans un même geste.", author: "Vitali Klitschko", sport: "boxe", emoji: "🥊" },
+  { id: 62, text: "Ce n'est pas la taille du chien dans le combat, mais la taille du combat dans le chien.", author: "Mark Twain (popularisé en boxe)", sport: "boxe", emoji: "🥊" },
+  { id: 63, text: "Tout combattant a peur. Le courage c'est de monter sur le ring quand même.", author: "Carlos Monzon", sport: "boxe", emoji: "🥊" },
+  { id: 64, text: "Je ne danse plus, je règle les comptes.", author: "Saúl 'Canelo' Álvarez", sport: "boxe", emoji: "🥊" },
+  { id: 65, text: "Le ring ne ment jamais.", author: "Joe Frazier", sport: "boxe", emoji: "🥊" },
+
+  // ===== Plus de MMA =====
+  { id: 66, text: "Soyez prêt à mourir pour réussir.", author: "Jon Jones", sport: "mma", emoji: "🥋" },
+  { id: 67, text: "Je ne suis pas un combattant, je suis un artiste de la guerre.", author: "Anderson Silva", sport: "mma", emoji: "🥋" },
+  { id: 68, text: "Si tu n'as pas peur, tu n'es pas vraiment courageux.", author: "Dustin Poirier", sport: "mma", emoji: "🥋" },
+  { id: 69, text: "Le combat révèle qui tu es vraiment, pas qui tu prétends être.", author: "Daniel Cormier", sport: "mma", emoji: "🥋" },
+  { id: 70, text: "Mon corps est une arme, mais mon esprit est l'arsenal.", author: "Israel Adesanya", sport: "mma", emoji: "🥋" },
+  { id: 71, text: "Je veux être celui dont les gens parleront dans 100 ans.", author: "Conor McGregor", sport: "mma", emoji: "🥋" },
+  { id: 72, text: "Personne ne te respectera tant que tu ne te respecteras pas toi-même.", author: "Khabib Nurmagomedov", sport: "mma", emoji: "🥋" },
+  { id: 73, text: "Sois humble dans la victoire, élégant dans la défaite.", author: "Georges St-Pierre", sport: "mma", emoji: "🥋" },
+  { id: 74, text: "L'octogone est mon temple.", author: "Amanda Nunes", sport: "mma", emoji: "🥋" },
+  { id: 75, text: "Le talent fait gagner des matchs, le travail fait gagner des championnats.", author: "Valentina Shevchenko", sport: "mma", emoji: "🥋" },
+
+  // ===== Plus de JJB =====
+  { id: 76, text: "Sur le tapis, ton ego est ton pire ennemi.", author: "Royler Gracie", sport: "jjb", emoji: "🥋" },
+  { id: 77, text: "Tap or nap : abandonne ou dors.", author: "Proverbe JJB", sport: "jjb", emoji: "🥋" },
+  { id: 78, text: "Le JJB t'apprend à perdre 1000 fois avant de gagner une fois.", author: "Demian Maia", sport: "jjb", emoji: "🥋" },
+  { id: 79, text: "La ceinture noire couvre seulement deux centimètres de ton cul. Le reste, tu dois le couvrir toi-même.", author: "Royce Gracie", sport: "jjb", emoji: "🥋" },
+  { id: 80, text: "Un débutant qui pratique tous les jours bat un avancé qui pratique une fois par semaine.", author: "Eddie Bravo", sport: "jjb", emoji: "🥋" },
+
+  // ===== Plus de JUDO =====
+  { id: 81, text: "Tomber sept fois, se relever huit.", author: "Proverbe japonais (judo)", sport: "judo", emoji: "🥋" },
+  { id: 82, text: "Le vrai judoka ne combat pas, il vit le judo.", author: "Anton Geesink", sport: "judo", emoji: "🥋" },
+  { id: 83, text: "L'objectif n'est pas de vaincre l'adversaire, mais de te vaincre toi-même.", author: "Yasuhiro Yamashita", sport: "judo", emoji: "🥋" },
+
+  // ===== Plus de KARATÉ =====
+  { id: 84, text: "Wax on, wax off. Persévère.", author: "Mr. Miyagi (Karate Kid)", sport: "karate", emoji: "🥋" },
+  { id: 85, text: "Le karaté ne sert pas à gagner, mais à ne pas perdre.", author: "Hironori Otsuka", sport: "karate", emoji: "🥋" },
+  { id: 86, text: "Frapper sans laisser de trace, c'est l'art ultime.", author: "Sosai Mas Oyama", sport: "karate", emoji: "🥋" },
+
+  // ===== Plus de MUAY THAÏ =====
+  { id: 87, text: "Au Muay Thaï, le corps oublie, mais l'esprit n'oublie jamais.", author: "Nong-O Gaiyanghadao", sport: "muay-thai", emoji: "🦵" },
+  { id: 88, text: "Un coude bien placé vaut mille poings.", author: "Proverbe Muay Thaï", sport: "muay-thai", emoji: "🦵" },
+
+  // ===== Plus de LUTTE =====
+  { id: 89, text: "La lutte est le sport le plus ancien et le plus honnête du monde.", author: "Aleksandr Karelin", sport: "lutte", emoji: "🤼" },
+  { id: 90, text: "Six minutes pour mourir mille fois, six minutes pour renaître.", author: "Jordan Burroughs", sport: "lutte", emoji: "🤼" },
+
+  // ===== BRUCE LEE / général arts martiaux =====
+  { id: 91, text: "La connaissance donnera le pouvoir, mais le caractère donnera le respect.", author: "Bruce Lee", sport: "general", emoji: "🐉" },
+  { id: 92, text: "Si tu aimes la vie, ne perds pas de temps. Car le temps est l'étoffe dont la vie est faite.", author: "Bruce Lee", sport: "general", emoji: "🐉" },
+  { id: 93, text: "Vide ton esprit, sois sans forme. Comme l'eau.", author: "Bruce Lee", sport: "general", emoji: "🐉" },
+  { id: 94, text: "La défaite n'est pas la pire des échecs. Ne pas avoir essayé, voilà la vraie défaite.", author: "George Edward Woodberry", sport: "general", emoji: "🐉" },
+  { id: 95, text: "Un guerrier ne se mesure pas à ses victoires, mais à sa capacité à se relever.", author: "Miyamoto Musashi", sport: "general", emoji: "🐉" },
+  { id: 96, text: "Sous le ciel, sur la terre, je suis le seul à être honoré.", author: "Bouddha (cité en arts martiaux)", sport: "general", emoji: "🐉" },
+  { id: 97, text: "Le bushido c'est trouver sa voie dans la mort.", author: "Yamamoto Tsunetomo", sport: "general", emoji: "🐉" },
+  { id: 98, text: "Ne pas frapper le premier, ne pas se laisser frapper le second.", author: "Maxime du Judo Kodokan", sport: "general", emoji: "🐉" },
+  { id: 99, text: "Le respect est la première arme du combattant.", author: "Antonio Inoki", sport: "general", emoji: "🐉" },
+  { id: 100, text: "Aujourd'hui je gagne, demain je gagne, toujours je gagne.", author: "Habit du champion", sport: "general", emoji: "🐉" },
 ]
 
 // Choisir une citation aléatoire
