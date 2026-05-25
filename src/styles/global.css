@@ -1305,6 +1305,43 @@ h1, h2, h3, h4 {
   pointer-events: none;
 }
 
+/* ===== Champ "Combattant préféré" sur le profil ===== */
+.favorite-fighter {
+  margin-top: 16px;
+  padding: 14px 18px;
+  background: linear-gradient(135deg, rgba(230,57,70,0.12) 0%, rgba(230,57,70,0.04) 100%);
+  border: 1px solid rgba(230,57,70,0.3);
+  border-radius: var(--r-md);
+  text-align: center;
+}
+.favorite-fighter-label {
+  font-family: var(--font-display);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--accent-soft);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.favorite-fighter-name {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 0.02em;
+  color: var(--text);
+  text-transform: uppercase;
+  transform: skewX(-3deg);
+}
+
+/* ===== Help text sous les champs ===== */
+.field-help {
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--text-mute);
+  font-style: italic;
+}
+
 /* ===== Profile hero (page ProfileView) ===== */
 .profile-hero {
   background: var(--bg-elev);

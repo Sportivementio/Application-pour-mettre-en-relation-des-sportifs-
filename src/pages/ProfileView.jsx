@@ -4,6 +4,7 @@ import { supabase } from '../lib/supabase'
 import { SPORTS } from '../lib/constants'
 import PageHeader from '../components/PageHeader'
 import { isBlocked, blockUser, unblockUser } from '../lib/moderation'
+import { defaultAvatarFor } from '../lib/defaultAvatar'
 
 export default function ProfileView({ user }) {
   const { id } = useParams()
@@ -61,6 +62,9 @@ export default function ProfileView({ user }) {
     profile.level && { label: 'Niveau', value: profile.level },
   ].filter(Boolean)
 
+  // Avatar : photo perso OU image IA selon gender
+  const avatarUrl = defaultAvatarFor(profile)
+
   return (
     <div>
       <PageHeader title={isMe ? 'Mon profil' : 'Combattant'} back={!isMe} />
@@ -70,10 +74,11 @@ export default function ProfileView({ user }) {
           className="avatar avatar-lg"
           style={{
             margin: '0 auto 18px',
-            ...(profile.avatar_url ? { backgroundImage: `url(${profile.avatar_url})` } : {}),
+            backgroundImage: `url(${avatarUrl})`,
           }}
         >
-          {!profile.avatar_url && initials}
+          {/* Si pas d'URL du tout (cas rarissime), afficher initiales */}
+          {!avatarUrl && initials}
         </div>
         <h2 className="profile-hero-name">{profile.full_name || profile.username}</h2>
         <div className="profile-hero-meta">
@@ -103,6 +108,13 @@ export default function ProfileView({ user }) {
                 {s.emoji} {s.label}
               </span>
             ))}
+          </div>
+        )}
+
+        {profile.favorite_fighter && (
+          <div className="favorite-fighter">
+            <div className="favorite-fighter-label">🥊 Combattant préféré</div>
+            <div className="favorite-fighter-name">{profile.favorite_fighter}</div>
           </div>
         )}
 

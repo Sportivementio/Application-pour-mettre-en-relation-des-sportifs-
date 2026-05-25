@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { supabase } from '../lib/supabase'
 import { SPORTS, LEVELS } from '../lib/constants'
 import PageHeader from '../components/PageHeader'
+import { defaultAvatarFor } from '../lib/defaultAvatar'
 
 export default function ProfileEdit({ user }) {
   const [profile, setProfile] = useState({
@@ -17,6 +18,7 @@ export default function ProfileEdit({ user }) {
     years_practice: '',
     weight: '',
     avatar_url: '',
+    favorite_fighter: '',
   })
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
@@ -229,11 +231,9 @@ export default function ProfileEdit({ user }) {
               className="avatar avatar-lg"
               style={{
                 width: 72, height: 72, fontSize: 26,
-                ...(profile.avatar_url ? { backgroundImage: `url(${profile.avatar_url})` } : {}),
+                backgroundImage: `url(${defaultAvatarFor({ ...profile, id: user?.id })})`,
               }}
-            >
-              {!profile.avatar_url && initials}
-            </div>
+            />
             <label className="upload-btn">
               <span className="upload-btn-icon">⤴</span>
               {uploading ? 'IMPORT…' : 'IMPORTER UNE PHOTO'}
@@ -246,6 +246,22 @@ export default function ProfileEdit({ user }) {
               />
             </label>
           </div>
+          {!profile.avatar_url && (
+            <div className="field-help">
+              Pas de photo ? On utilise une image IA de combattant{profile.gender === 'F' ? 'e' : ''} à ta place 🤖🥊
+            </div>
+          )}
+        </div>
+
+        <div className="field">
+          <label className="field-label">Combattant préféré</label>
+          <input
+            className="input"
+            placeholder="ex: Mike Tyson, Khabib, Teddy Riner…"
+            value={profile.favorite_fighter || ''}
+            onChange={(e) => setProfile({ ...profile, favorite_fighter: e.target.value })}
+            maxLength={80}
+          />
         </div>
 
         <div className="field">
