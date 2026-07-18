@@ -4,6 +4,7 @@ import { useNotifications } from '../lib/NotificationsContext'
 const items = [
   { to: '/',         icon: '🔍', label: 'Search' },
   { to: '/messages', icon: '💬', label: 'Chat', badgeKey: 'chat' },
+  { to: '/sessions', icon: '📍', label: 'Sessions' },
   { to: '/quotes',   icon: '❝',  label: 'Quotes' },
   { to: '/profile',  icon: '👤', label: 'Profile' },
 ]
