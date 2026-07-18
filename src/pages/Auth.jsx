@@ -1,9 +1,18 @@
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 import { supabase } from '../lib/supabase'
 
 export default function Auth() {
-  const [mode, setMode] = useState('signup') // 'signup' | 'login'
+  const [searchParams] = useSearchParams()
+  // Lit ?mode=login dans l'URL pour démarrer en mode connexion
+  const initialMode = searchParams.get('mode') === 'login' ? 'login' : 'signup'
+  const [mode, setMode] = useState(initialMode) // 'signup' | 'login'
+
+  // Si la query change (ex: click sur "Connexion" depuis une autre page), mettre à jour
+  useEffect(() => {
+    const m = searchParams.get('mode') === 'login' ? 'login' : 'signup'
+    setMode(m)
+  }, [searchParams])
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [username, setUsername] = useState('')

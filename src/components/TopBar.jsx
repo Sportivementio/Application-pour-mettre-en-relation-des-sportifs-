@@ -17,7 +17,7 @@ export default function TopBar({ user, onLogout }) {
             <span aria-hidden>◆</span>
           </button>
         ) : (
-          <Link to="/auth" className="btn btn-ghost btn-sm">Connexion</Link>
+          <Link to="/auth?mode=login" className="btn btn-ghost btn-sm">Connexion</Link>
         )}
       </div>
     </header>
